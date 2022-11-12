@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
+// Admin Controller
+use App\Http\Controllers\Admin\DashboardAdminController;
+use App\Http\Controllers\Admin\AdminPendonorDataController;
+use App\Http\Controllers\Admin\AdminCategoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +40,10 @@ Route::middleware(['auth', 'user-access:USER'])->group(function () {
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:ADMIN'])->group(function () {
 
-    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    // Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::get('/admin/dashboard', [DashboardAdminController::class, 'indexDashboardAdmin'])->name('admin.dashboard');
+    Route::get('/admin/pendonor_data', [AdminPendonorDataController::class, 'indexAddPedonorData'])->name('admin.pendonorData');
+    Route::get('/admin/pendonor_category', [AdminCategoryController::class, 'indexAddPendonorCategory'])->name('admin.pendonorCategory');
 });
 
 /*------------------------------------------

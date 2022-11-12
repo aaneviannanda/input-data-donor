@@ -1,0 +1,44 @@
+.menu__login {
+    background-color: #ffd2f8;
+}
+
+.brand__login {
+    margin-left: 2em;
+}
+
+.register__btn {
+    margin-right: 2em;
+    min-width: 44px;
+    min-height: 44px;
+    border: 2px solid;
+    border-color: #cf2e86;
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.btn__login {
+    background-color: #cf2e86;
+    color: white;
+    font-weight: 600;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.form__login {
+    margin-top: 3em;
+}
+
+.card-login {
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+/* Styling modal sign up */
+.btn-signIn {
+    background-color: #cf2e86;
+    color: white;
+    font-weight: 600;
+    min-width: 44px;
+    min-height: 44px;
+}

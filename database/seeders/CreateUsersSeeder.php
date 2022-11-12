@@ -18,13 +18,13 @@ class CreateUsersSeeder extends Seeder
         $users = [
             [
                'name'=>'Admin User',
-               'email'=>'admin@laratutorials.com',
+               'email'=>'admin@gmail.com',
                'type'=>0,
                'password'=> bcrypt('123456'),
             ],
             [
                'name'=>'User',
-               'email'=>'user@laratutorials.com',
+               'email'=>'user@gmail.com',
                'type'=>1,
                'password'=> bcrypt('123456'),
             ],
