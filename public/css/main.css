@@ -566,6 +566,11 @@ body {
     font-size: 24px;
     font-weight: 700;
     color: #012970;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
   
   .about p {
@@ -2329,6 +2334,7 @@ body {
     color: #012970;
     font-family: "Nunito", sans-serif;
     margin-top: 3px;
+    margin-left: -5px;
   }
   
   .footer .footer-top .footer-info p {
