@@ -2,9 +2,10 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <h2 class="text-center mt-5 fs-1 fw-bold">Register Page</h2>
+    <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card border border-primary shadow">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -74,4 +75,7 @@
         </div>
     </div>
 </div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#4154f1" fill-opacity="1" d="M0,256L40,218.7C80,181,160,107,240,117.3C320,128,400,224,480,245.3C560,267,640,213,720,208C800,203,880,245,960,224C1040,203,1120,117,1200,112C1280,107,1360,181,1400,218.7L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
+</svg>
 @endsection

@@ -37,7 +37,7 @@
                 @php
                     $no = 0;
                 @endphp
-                {{-- @foreach($categories as $category)
+                @foreach($data as $category)
                     @php $no++; @endphp
                     <tr>
                         <td>{{ $no }}</td>
@@ -45,14 +45,14 @@
                         <td>
                             <div class="d-inline-flex add_category_btn">
                                 <button data-toggle="modal" data-target="#edit__category_{{ $category->id }}" class="btn btn-warning">Edit</button>
-                                <form method="POST" action="{{ route('delete_category', ['id' => $category->id]) }}">
+                                <form method="POST" action="{{ route('admin.deleteCategory', ['id' => $category->id]) }}">
                                 @csrf
                                     <button type = "submit" class="btn btn-danger">{{ __('Hapus') }}</button>
                                 </form>
                             </div>
                         </td>
                     </tr>
-                @endforeach --}}
+                @endforeach
                 </tbody>
             </table>
 
@@ -67,7 +67,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="POST">
+                            <form action="{{ route('admin.insertCategory') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="name">Name</label>
@@ -83,7 +83,7 @@
             </div>
 
             <!-- Modal Untuk Edit  -->
-            {{-- @foreach($categories as $category)
+            @foreach($data as $category)
             <div class="modal fade " id="edit__category_{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -94,7 +94,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('update_category', ['id' => $category->id]) }}" method="POST">
+                            <form action="{{ route('admin.updateCategory', ['id' => $category->id]) }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="name">NAME</label>
@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            @endforeach --}}
+            @endforeach
         </div>
     </div>
 </div>

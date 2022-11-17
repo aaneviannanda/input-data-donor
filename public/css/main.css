@@ -236,7 +236,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0 10px 30px;
     font-family: "Nunito", sans-serif;
     font-size: 16px;
     font-weight: 700;
@@ -263,7 +262,6 @@ body {
   .navbar .getstarted:focus {
     background: #4154f1;
     padding: 8px 20px;
-    margin-left: 30px;
     border-radius: 4px;
     color: #fff;
   }
@@ -338,6 +336,15 @@ body {
     .navbar .dropdown .dropdown:hover>ul {
       left: -100%;
     }
+  }
+
+  /* Custom Nav */
+  .btn__logout {
+    margin-left: 20px;
+  }
+
+  .btn__login {
+    margin-left:15px;
   }
   
   /**

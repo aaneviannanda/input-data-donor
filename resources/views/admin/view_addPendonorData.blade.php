@@ -50,27 +50,34 @@
                 </thead>
                 <tbody>
                 @php $no = 0; @endphp
-                {{-- @foreach($pendonor_data as $pd)
+                @foreach($data_donor as $pd)
                     @php $no++; @endphp
                     <tr>
                         <td class="text-center">{{ $no }}</td>
                         <td>{{ $pd->categories->name }}</td>
+                        <td>{{ $pd->card_number }}</td>
                         <td>{{ $pd->name }}</td>
-                        <td>{{ $pd->price }}</td>
-                        <td>{{ $pd->link_img }}</td>
-                        <td>{{ $pd->rating }}</td>
-                        <td>{{ $pd->description }}</td>
+                        <td>{{ $pd->gender }}</td>
+                        <td>{{ $pd->no_ktp_sim }}</td>
+                        <td>{{ $pd->address }}</td>
+                        <td>{{ $pd->phone_number }}</td>
+                        <td>{{ $pd->profession }}</td>
+                        <td>{{ $pd->office_address }}</td>
+                        <td>{{ $pd->office_phone_number }}</td>
+                        <td>{{ $pd->place_birth }}</td>
+                        <td>{{ $pd->date_birth }}</td>
+                        <td>{{ $pd->number_of_donors }}</td>
                         <td class="text-center">
                             <div class="d-inline-flex add_product_btn">
-                                <button data-toggle="modal" data-target="#edit__product_{{ $product->id }}" class="btn btn-sm btn-warning">Edit</button>
-                                <form method="POST" action="{{ route('delete_product', ['id' => $product->id]) }}" enctype="multipart/form-data">
+                                <button data-toggle="modal" data-target="#edit__pendonor_{{ $pd->id }}" class="btn btn-sm btn-warning">Edit</button>
+                                <form method="POST" action="{{ route('admin.deletePendonorData', ['id' => $pd->id]) }}" enctype="multipart/form-data">
                                     @csrf
                                     <button type = "submit" class="btn btn-sm btn-danger">{{ __('Hapus') }}</button>
                                 </form>
                             </div>
                         </td>
                     </tr>
-                @endforeach --}}
+                @endforeach
                 </tbody>
             </table>
 
@@ -85,62 +92,62 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.insertPendonorData') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <label for="name">Category</label>
-                                <select class="custom-select custom-select-sm mb-2" name="category_id">
+                                <select class="custom-select custom-select-sm mb-2" name="pendonor_category_id">
                                     <option selected>Pilih Category</option>
-                                    {{-- @foreach($categories as $category)
+                                    @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach --}}
+                                    @endforeach
                                 </select>
                                 <div class="form-group">
-                                    <label for="name">Card Number</label>
-                                    <input name="name" type="text" class="form-control" id="name" aria-describedby="name" placeholder="enter card number" >
+                                    <label for="card_number">Card Number</label>
+                                    <input name="card_number" type="text" class="form-control" id="name" aria-describedby="name" placeholder="enter card number" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="price">Name</label>
-                                    <input name="price" type="text" class="form-control" id="price" placeholder="enter name">
+                                    <label for="name">Name</label>
+                                    <input name="name" type="text" class="form-control" id="price" placeholder="enter name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="price">Gender</label>
-                                    <input name="price" type="text" class="form-control" id="price" placeholder="enter gender">
+                                    <label for="gender">Gender</label>
+                                    <input name="gender" type="text" class="form-control" id="price" placeholder="enter gender">
                                 </div>
                                 <div class="form-group">
-                                    <label for="rating">No KTP/SIM</label>
-                                    <input name="rating" type="text" class="form-control" id="rating" placeholder="enter no KTP/SIM">
+                                    <label for="no_ktp">No KTP/SIM</label>
+                                    <input name="no_ktp" type="text" class="form-control" id="rating" placeholder="enter no KTP/SIM">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Address</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter address">
+                                    <label for="address">Address</label>
+                                    <input name="address" type="text" class="form-control" id="description" placeholder="enter address">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Phone Number</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter phone number">
+                                    <label for="phone_number">Phone Number</label>
+                                    <input name="phone_number" type="text" class="form-control" id="description" placeholder="enter phone number">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Profession</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter profession">
+                                    <label for="profession">Profession</label>
+                                    <input name="profession" type="text" class="form-control" id="description" placeholder="enter profession">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Office Addres</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter office address">
+                                    <label for="office_address">Office Addres</label>
+                                    <input name="office_address" type="text" class="form-control" id="description" placeholder="enter office address">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Office Phone Number</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter office phone number">
+                                    <label for="office_phone">Office Phone Number</label>
+                                    <input name="office_phone" type="text" class="form-control" id="description" placeholder="enter office phone number">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Place Birth</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter place birth">
+                                    <label for="place_birth">Place Birth</label>
+                                    <input name="place_birth" type="text" class="form-control" id="description" placeholder="enter place birth">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Date Birth</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter date birth">
+                                    <label for="date_birth">Date Birth</label>
+                                    <input name="date_birth" type="date" class="form-control" id="description" placeholder="enter date birth">
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Number of Donors</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter number of donors">
+                                    <label for="number_donors">Number of Donors</label>
+                                    <input name="number_donors" type="text" class="form-control" id="description" placeholder="enter number of donors">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -152,73 +159,73 @@
             </div>
 
             <!-- Modal Untuk Edit Data Product-->
-            {{-- @foreach($products as $product)
-            <div class="modal fade" id="edit__product_{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            @foreach($data_donor as $pd)
+            <div class="modal fade" id="edit__pendonor_{{ $pd->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Data Product</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Data Pendonor</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('update_product', ['id' => $product->id]) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.updatePendonorData', ['id' => $pd->id]) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <label for="name">Category</label>
-                                <select class="custom-select custom-select-sm mb-2" name="category_id">
+                                <select class="custom-select custom-select-sm mb-2" name="pendonor_category_id">
                                     <option selected>Pilih Category</option>
                                     @foreach($categories as $category)
-                                    <option value="{{ $product->category_id }}" selected>{{ $category->name }}</option>
+                                    <option value="{{ $pd->pendonor_category_id }}" selected>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                                 <div class="form-group">
-                                    <label for="name">Card Number</label>
-                                    <input name="name" type="text" class="form-control" id="name" aria-describedby="name" placeholder="enter card number" >
+                                    <label for="card_number">Card Number</label>
+                                    <input name="card_number" type="text" class="form-control" id="name" aria-describedby="name" placeholder="enter card number" value="{{ $pd->card_number }}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="price">Name</label>
-                                    <input name="price" type="text" class="form-control" id="price" placeholder="enter name">
+                                    <label for="name">Name</label>
+                                    <input name="name" type="text" class="form-control" id="price" placeholder="enter name" value="{{ $pd->name }}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="price">Gender</label>
-                                    <input name="price" type="text" class="form-control" id="price" placeholder="enter gender">
+                                    <label for="gender">Gender</label>
+                                    <input name="gender" type="text" class="form-control" id="price" placeholder="enter gender" value="{{ $pd->gender }}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="rating">No KTP/SIM</label>
-                                    <input name="rating" type="text" class="form-control" id="rating" placeholder="enter no KTP/SIM">
+                                    <label for="no_ktp">No KTP/SIM</label>
+                                    <input name="no_ktp" type="text" class="form-control" id="rating" placeholder="enter no KTP/SIM" value="{{ $pd->no_ktp_sim }}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Address</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter address">
+                                    <label for="address">Address</label>
+                                    <input name="address" type="text" class="form-control" id="description" placeholder="enter address" value="{{ $pd->address }}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Phone Number</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter phone number">
+                                    <label for="phone_number">Phone Number</label>
+                                    <input name="phone_number" type="text" class="form-control" id="description" placeholder="enter phone number" value="{{ $pd->phone_number }}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Profession</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter profession">
+                                    <label for="profession">Profession</label>
+                                    <input name="profession" type="text" class="form-control" id="description" placeholder="enter profession" value="{{ $pd->profession }}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Office Addres</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter office address">
+                                    <label for="office_address">Office Addres</label>
+                                    <input name="office_address" type="text" class="form-control" id="description" placeholder="enter office address" value="{{ $pd->office_address }}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Office Phone Number</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter office phone number">
+                                    <label for="office_phone">Office Phone Number</label>
+                                    <input name="office_phone" type="text" class="form-control" id="description" placeholder="enter office phone number" value="{{ $pd->office_phone_number }}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Place Birth</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter place birth">
+                                    <label for="place_birth">Place Birth</label>
+                                    <input name="place_birth" type="text" class="form-control" id="description" placeholder="enter place birth" value="{{ $pd->place_birth }}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Date Birth</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter date birth">
+                                    <label for="date_birth">Date Birth</label>
+                                    <input name="date_birth" type="date" class="form-control" id="description" placeholder="enter date birth" value="{{ $pd->date_birth }}" >
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Number of Donors</label>
-                                    <input name="description" type="text" class="form-control" id="description" placeholder="enter number of donors">
+                                    <label for="number_donors">Number of Donors</label>
+                                    <input name="number_donors" type="text" class="form-control" id="description" placeholder="enter number of donors" value="{{ $pd->number_of_donors }}" >
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -228,7 +235,7 @@
                     </div>
                 </div>
             </div>
-            @endforeach --}}
+            @endforeach
         </div>
     </div>
 </div>

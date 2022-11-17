@@ -46,52 +46,51 @@
         <link rel="stylesheet" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" />
     </head>
     <body class="antialiased">
+
         <!-- ======= Header ======= -->
         <header id="header" class="header fixed-top bg-light">
-            @if (Route::has('login'))
-                <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-                    <a href="#" class="logo d-flex align-items-center">
-                        <img src="" alt="">
-                        <span>IDP</span>
-                    </a>
+                <a href="#" class="logo d-flex align-items-center">
+                    <img src="" alt="">
+                    <span>IDP</span>
+                </a>
 
-                    <nav id="navbar" class="navbar">
-                        <ul>
-                            @auth
-                                <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
-                                <li><a class="nav-link scrollto" href="#about">About</a></li>
-                                <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
-                                <li class="nav-link link__logout dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {{ Auth::user()->name }}
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        @auth
+                            <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
+                            <li><a class="nav-link scrollto" href="">Donors</a></li>
+                            <li><a class="nav-link scrollto" href="#about">About</a></li>
+                            <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
+                            <li class="nav-link dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <a class="dropdown-item rounded" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-        
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </ul>
-                                </li>
-                            @else
-                                <li><a class="nav-link scrollto" href="#about">About</a></li>
-                                <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
-                                <li><a class="getstarted scrollto btn__login" href="{{ route('login') }}">Login</a></li>
-                                @if (Route::has('register'))
-                                    <li><a class="nav-link scrollto" href="{{ route('register') }}">Register</a></li>
-                                @endif
-                            @endauth
-                        </ul>
-                        <i class="bi bi-list mobile-nav-toggle"></i>
-                    </nav><!-- .navbar -->
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </ul>
+                            </li>
+                        @else
+                            <li><a class="nav-link scrollto" href="#about">About</a></li>
+                            <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
+                            <li><a class="getstarted scrollto btn__login" href="{{ route('login') }}">Login</a></li>
+                            @if (Route::has('register'))
+                                <li><a class="nav-link scrollto" href="{{ route('register') }}">Register</a></li>
+                            @endif
+                        @endauth
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
 
-                </div>
-            @endif
+            </div>
         </header><!-- End Header -->
         @yield('content')
         <!-- ======= Footer ======= -->
@@ -151,7 +150,8 @@
                     &copy; Copyright <strong><span>IDP</span></strong> 2022
                 </div>
             </div>
-        </footer><!-- End Footer -->
+        </footer>
+        <!-- End Footer -->
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
         <!-- Template Main JS File -->
 

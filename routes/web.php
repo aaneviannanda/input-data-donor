@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\AdminPendonorDataController;
 use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Client\HomeClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('client.index');
 });
 
 Auth::routes();
@@ -32,7 +33,8 @@ Auth::routes();
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:USER'])->group(function () {
 
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeClientController::class, 'indexHomeClient'])->name('home');
+    // Route::get('/client', [HomeClientController::class, 'indexHomeClient'])->name('client.home');
 });
 
 /*------------------------------------------
@@ -42,8 +44,19 @@ Route::middleware(['auth', 'user-access:ADMIN'])->group(function () {
 
     // Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/admin/dashboard', [DashboardAdminController::class, 'indexDashboardAdmin'])->name('admin.dashboard');
+
+    // Route Pendonor Data
     Route::get('/admin/pendonor_data', [AdminPendonorDataController::class, 'indexAddPedonorData'])->name('admin.pendonorData');
+    Route::post('/admin/pendonor_data/insert', [AdminPendonorDataController::class, 'insert_pendonors_data'])->name('admin.insertPendonorData');
+    Route::post('/admin/pendonor_data/update/{id}', [AdminPendonorDataController::class, 'update_pendonors_data'])->name('admin.updatePendonorData');
+    Route::post('/admin/pendonor_data/delete/{id}', [AdminPendonorDataController::class, 'delete_pendonors_data'])->name('admin.deletePendonorData');
+
+
+    // Route Pendonor Category
     Route::get('/admin/pendonor_category', [AdminCategoryController::class, 'indexAddPendonorCategory'])->name('admin.pendonorCategory');
+    Route::post('/admin/category/insert', [AdminCategoryController::class, 'insert_category'])->name('admin.insertCategory');
+    Route::post('/admin/category/update/{id}', [AdminCategoryController::class, 'update_category'])->name('admin.updateCategory');
+    Route::post('/admin/category/delete/{id}', [AdminCategoryController::class, 'delete_category'])->name('admin.deleteCategory');
 });
 
 /*------------------------------------------
