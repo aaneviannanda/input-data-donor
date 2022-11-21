@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Icon -->
+        <link rel="icon" href="{{ asset('img/logo-idp.png') }}">
+
         <title>IDP APPS</title>
 
         <!-- Fonts -->
@@ -52,8 +55,7 @@
                 <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
                     <a href="#" class="logo d-flex align-items-center">
-                        <img src="" alt="">
-                        <span>IDP</span>
+                        <img src="{{ asset('img/logo-idp.png') }}" alt="Logo idp apps">
                     </a>
 
                     <nav id="navbar" class="navbar">
@@ -80,6 +82,7 @@
                                 </li>
                             @else
                                 <li><a class="nav-link scrollto" href="#about">About</a></li>
+                                <li><a class="nav-link scrollto" href="#values">Teams</a></li>
                                 <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
                                 <li><a class="getstarted scrollto btn__login" href="{{ route('login') }}">Login</a></li>
                                 @if (Route::has('register'))
@@ -101,8 +104,7 @@
                     <div class="row gy-4">
                         <div class="col-lg-5 col-md-12 footer-info">
                             <a href="index.html" class="logo d-flex align-items-center">
-                            <img src="" alt="">
-                            <span>IDP</span>
+                            <img src="{{ asset('img/logo-idp.png') }}" alt="logo idp apps">
                             </a>
                             <p>
                                 The Blood Donor Data Entry Information System at the Surabaya City Indonesian Red Cross Blood Transfusion Unit is a system used to manage donors' personal data more effectively and efficiently.
@@ -118,9 +120,10 @@
                         <div class="col-lg-2 col-6 footer-links">
                             <h4>Useful Links</h4>
                             <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#footer">Contacts</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="#values">Teams</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="#footer">Contacts</a></li>
                             </ul>
                         </div>
 

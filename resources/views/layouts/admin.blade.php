@@ -9,7 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" href="">
+    <!-- Icon -->
+    <link rel="icon" href="{{ asset('img/logo-idp.png') }}">
+    
     <title>IDP ADMIN</title>
 
     <!-- Custom fonts for this template-->
