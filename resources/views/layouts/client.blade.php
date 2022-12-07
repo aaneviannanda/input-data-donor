@@ -49,112 +49,12 @@
         <link rel="stylesheet" href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" />
     </head>
     <body class="antialiased">
-
-        <!-- ======= Header ======= -->
-        <header id="header" class="header fixed-top bg-light">
-            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-                <a href="#" class="logo d-flex align-items-center">
-                    <img src="{{ asset('img/logo-idp.png') }}" alt="Logo IDP Apps">
-                </a>
-
-                <nav id="navbar" class="navbar">
-                    <ul>
-                        @auth
-                            <li><a class="nav-link scrollto active" href="{{ url('/home') }}">Home</a></li>
-                            <li><a class="nav-link scrollto" href="">Donors</a></li>
-                            <li><a class="nav-link scrollto" href="#about">About</a></li>
-                            <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
-                            <li class="nav-link dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{ Auth::user()->name }}
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
-                                    <a class="dropdown-item rounded" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </ul>
-                            </li>
-                        @else
-                            <li><a class="nav-link scrollto" href="#about">About</a></li>
-                            <li><a class="nav-link scrollto" href="#values">Teams</a></li>
-                            <li><a class="nav-link scrollto" href="#footer">Contact</a></li>
-                            <li><a class="getstarted scrollto btn__login" href="{{ route('login') }}">Login</a></li>
-                            @if (Route::has('register'))
-                                <li><a class="nav-link scrollto" href="{{ route('register') }}">Register</a></li>
-                            @endif
-                        @endauth
-                    </ul>
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-                </nav><!-- .navbar -->
-
-            </div>
-        </header><!-- End Header -->
+        <!-- Navbar -->
+        @include('layouts.client.nav')
+        <!-- Content -->
         @yield('content')
-        <!-- ======= Footer ======= -->
-        <footer id="footer" class="footer">
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row gy-4">
-                        <div class="col-lg-5 col-md-12 footer-info">
-                            <a href="index.html" class="logo d-flex align-items-center">
-                            <img src="{{ asset('img/logo-idp.png') }}" alt="Logo IDP Apps">
-                            </a>
-                            <p>
-                                The Blood Donor Data Entry Information System at the Surabaya City Indonesian Red Cross Blood Transfusion Unit is a system used to manage donors' personal data more effectively and efficiently.
-                            </p>
-                            <div class="social-links mt-3">
-                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-6 footer-links">
-                            <h4>Useful Links</h4>
-                            <ul>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#values">Teams</a></li>
-                                <li><i class="bi bi-chevron-right"></i> <a href="#footer">Contacts</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="col-lg-2 col-6 footer-links">
-                            <h4>Our Services</h4>
-                            <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a target="_blank" href="http://www.sby.uddpmikotasby.com/">Web Profile</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                            <h4>Contact Us</h4>
-                            <p>
-                                AXA Insurance <br>
-                            Jl. Sumatera No. 16 Surabaya<br>
-                            Indonesia <br><br>
-                            <strong>Phone:</strong> (+62) 31 5313289<br>
-                            <strong>FAQ:</strong> (+62) 31 53<br>
-                            </p>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="copyright">
-                    &copy; Copyright <strong><span>IDP</span></strong> 2022
-                </div>
-            </div>
-        </footer>
-        <!-- End Footer -->
+        <!-- Footer -->
+        @include('layouts.client.footer')
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
         <!-- Template Main JS File -->
 
@@ -169,5 +69,5 @@
 
         <!-- Template Main JS File -->
         <script src="{{ asset('assets/js/main.js') }}"></script>
-        </body>
+    </body>
 </html>
