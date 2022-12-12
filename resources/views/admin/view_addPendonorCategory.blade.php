@@ -47,7 +47,7 @@
                                 <button data-toggle="modal" data-target="#edit__category_{{ $category->id }}" class="btn btn-warning">Edit</button>
                                 <form method="POST" action="{{ route('admin.deleteCategory', ['id' => $category->id]) }}">
                                 @csrf
-                                    <button type = "submit" class="btn btn-danger">{{ __('Hapus') }}</button>
+                                    <button type="submit" class="btn btn-danger">{{ __('Hapus') }}</button>
                                 </form>
                             </div>
                         </td>

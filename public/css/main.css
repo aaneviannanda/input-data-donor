@@ -2445,3 +2445,61 @@ body {
     font-weight: 700;
     color: #012970;
   }
+
+  .add-donor h3 {
+    margin: 2.5em 0 0 0;
+    padding: 0;
+    font-size: 38px;
+    line-height: 42px;
+    font-weight: 700;
+    color: #012970;
+  }
+
+  .btn_submit {
+    background-color: #4154f1;
+    color: white;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 20px;
+    width: 100%;
+  }
+
+  .card__data {
+    margin-top: 3em;
+  }
+
+  h6 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .btn__data{
+    display: inline;
+  }
+
+  .btn__add__new{
+    background-color: #4154f1;
+    color: white;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 20px;
+    width: 30%;
+  }
+
+  .btn__edit__data {
+    background-color: yellow;
+    color: white;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 20px;
+    width: 30%;
+  }
+
+  .btn__delete__data {
+    background-color: red;
+    color: white;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 20px;
+    width: 30%;
+  }

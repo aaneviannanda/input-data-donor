@@ -20,7 +20,7 @@
 
         <!-- Nav Item - Add Product -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('admin.pendonorData'); }}"">
+        <a class="nav-link" href="{{ route('admin.pendonorData'); }}">
             <i class="fas fa-plus-circle"></i>
         <span>Pendonor Data</span></a>
     </li>

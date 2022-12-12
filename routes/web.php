@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Client\HomeClientController;
+use App\Http\Controllers\Client\AddPendonorDataController;
+
 
 // Admin Controller
 use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\AdminPendonorDataController;
 use App\Http\Controllers\Admin\AdminCategoryController;
-use App\Http\Controllers\Client\HomeClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Auth::routes();
 Route::middleware(['auth', 'user-access:USER'])->group(function () {
 
     Route::get('/home', [HomeClientController::class, 'indexHomeClient'])->name('home');
+    Route::get('/pendonor', [AddPendonorDataController::class, 'addPendonorData'])->name('client.pendonorData');
+
     // Route::get('/client', [HomeClientController::class, 'indexHomeClient'])->name('client.home');
 });
 
