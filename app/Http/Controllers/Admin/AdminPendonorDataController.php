@@ -70,7 +70,24 @@ class AdminPendonorDataController extends Controller
     }
 
     public function delete_pendonors_data($id) {
-        Pendonor_data::find($id)->delete();
+        $pendonor_data = Pendonor_data::find($id);
+
+        // Set Value
+        $pendonor_data->pendonor_category_id = 1;
+        $pendonor_data->card_number = null;
+        $pendonor_data->name = null;
+        $pendonor_data->gender = null;
+        $pendonor_data->no_ktp_sim = null;
+        $pendonor_data->address = null;
+        $pendonor_data->phone_number = null;
+        $pendonor_data->profession = null;
+        $pendonor_data->office_address = null;
+        $pendonor_data->office_phone_number = null;
+        $pendonor_data->place_birth = null;
+        $pendonor_data->date_birth = null;
+        $pendonor_data->number_of_donors = null;
+
+        $pendonor_data->save();
         return redirect()->route('admin.pendonorData');
     }
 

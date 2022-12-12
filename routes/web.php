@@ -35,8 +35,7 @@ Auth::routes();
 Route::middleware(['auth', 'user-access:USER'])->group(function () {
 
     Route::get('/home', [HomeClientController::class, 'indexHomeClient'])->name('home');
-    Route::get('/pendonor', [AddPendonorDataController::class, 'addPendonorData'])->name('client.pendonorData');
-
+    Route::post('/user/update_data', [HomeClientController::class, 'update_user_data'])->name('client.updateUserData');
     // Route::get('/client', [HomeClientController::class, 'indexHomeClient'])->name('client.home');
 });
 

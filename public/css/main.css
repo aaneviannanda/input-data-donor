@@ -2473,33 +2473,27 @@ body {
     font-weight: 700;
   }
 
-  .btn__data{
+  .btn__data {
     display: inline;
+    position: relative;
   }
 
-  .btn__add__new{
+  .btn__edit__data {
     background-color: #4154f1;
     color: white;
     min-width: 44px;
     min-height: 44px;
     font-size: 20px;
-    width: 30%;
+    width: 45%;
   }
 
-  .btn__edit__data {
+  .btn__export__data {
+    position: absolute;
+    right: 13px;
     background-color: yellow;
     color: white;
     min-width: 44px;
     min-height: 44px;
     font-size: 20px;
-    width: 30%;
-  }
-
-  .btn__delete__data {
-    background-color: red;
-    color: white;
-    min-width: 44px;
-    min-height: 44px;
-    font-size: 20px;
-    width: 30%;
+    width: 45%;
   }

@@ -20,12 +20,6 @@
                 <div class="row no-gutters">
                     <div class="col-12">
                         <div class="d-flex justify-content-end mb-3">
-                            <a href="#" data-toggle="modal" data-target="#add__pendonor" class="btn btn-primary btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                                <span class="text">Add Pendonor Data</span>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -80,83 +74,6 @@
                 @endforeach
                 </tbody>
             </table>
-
-            <!-- Modal Untuk Add Data Product-->
-            <div class="modal fade" id="add__pendonor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add Pendonor Data</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="{{ route('admin.insertPendonorData') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <label for="name">Category</label>
-                                <select class="custom-select custom-select-sm mb-2" name="pendonor_category_id">
-                                    <option selected>Pilih Category</option>
-                                    @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
-                                <div class="form-group">
-                                    <label for="card_number">Card Number</label>
-                                    <input name="card_number" type="text" class="form-control" id="name" aria-describedby="name" placeholder="enter card number" >
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input name="name" type="text" class="form-control" id="price" placeholder="enter name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="gender">Gender</label>
-                                    <input name="gender" type="text" class="form-control" id="price" placeholder="enter gender">
-                                </div>
-                                <div class="form-group">
-                                    <label for="no_ktp">No KTP/SIM</label>
-                                    <input name="no_ktp" type="text" class="form-control" id="rating" placeholder="enter no KTP/SIM">
-                                </div>
-                                <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input name="address" type="text" class="form-control" id="description" placeholder="enter address">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone_number">Phone Number</label>
-                                    <input name="phone_number" type="text" class="form-control" id="description" placeholder="enter phone number">
-                                </div>
-                                <div class="form-group">
-                                    <label for="profession">Profession</label>
-                                    <input name="profession" type="text" class="form-control" id="description" placeholder="enter profession">
-                                </div>
-                                <div class="form-group">
-                                    <label for="office_address">Office Addres</label>
-                                    <input name="office_address" type="text" class="form-control" id="description" placeholder="enter office address">
-                                </div>
-                                <div class="form-group">
-                                    <label for="office_phone">Office Phone Number</label>
-                                    <input name="office_phone" type="text" class="form-control" id="description" placeholder="enter office phone number">
-                                </div>
-                                <div class="form-group">
-                                    <label for="place_birth">Place Birth</label>
-                                    <input name="place_birth" type="text" class="form-control" id="description" placeholder="enter place birth">
-                                </div>
-                                <div class="form-group">
-                                    <label for="date_birth">Date Birth</label>
-                                    <input name="date_birth" type="date" class="form-control" id="description" placeholder="enter date birth">
-                                </div>
-                                <div class="form-group">
-                                    <label for="number_donors">Number of Donors</label>
-                                    <input name="number_donors" type="text" class="form-control" id="description" placeholder="enter number of donors">
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Modal Untuk Edit Data Product-->
             @foreach($data_donor as $pd)
