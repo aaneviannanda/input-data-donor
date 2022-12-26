@@ -46,6 +46,7 @@ Route::middleware(['auth', 'user-access:ADMIN'])->group(function () {
 
     // Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/admin/dashboard', [DashboardAdminController::class, 'indexDashboardAdmin'])->name('admin.dashboard');
+    Route::get('/chart_data', [DashboardAdminController::class, 'getChartData'])->name('admin.chartData');
 
     // Route Pendonor Data
     Route::get('/admin/pendonor_data', [AdminPendonorDataController::class, 'indexAddPedonorData'])->name('admin.pendonorData');

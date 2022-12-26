@@ -29,6 +29,10 @@
 
     <!-- Sweet Alert -->
     <script src="{{ asset('js/sweetalert.min.js') }}"></script>
+    <!-- CDN Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <!-- CDN JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
 
 <body id="page-top">
